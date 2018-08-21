@@ -10,3 +10,18 @@
 .cartIcon{
     font-size: 35px
 }
+
+.numberOfItems{
+    position: absolute;
+    z-index:1;
+    color: red;
+   
+}
+
+.numberOfItemsString{
+    color: white;
+    z-index:2;
+    position: absolute;
+    font-family:  Arial, sans-serif
+    
+}
