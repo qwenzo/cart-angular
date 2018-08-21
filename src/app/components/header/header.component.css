@@ -1,3 +1,12 @@
 .headerContainer{
     border:1px solid #ddd
 }
+
+.cartIconContainer{
+    margin-right: 3%
+
+}
+
+.cartIcon{
+    font-size: 35px
+}
