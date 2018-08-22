@@ -8,5 +8,18 @@
 }
 
 .name{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 24;
+    font-weight: 600
+
+    
+}
+
+.img{
+    border-radius: 2%
+}
+
+.detailsContainer{
+   margin-left: 2%;
+   margin-right: 2%;
 }
