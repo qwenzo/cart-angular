@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {HeaderService} from '../../services/header.service'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   numberOfItems:number;
 
-  constructor() { }
+  constructor(private headerService:HeaderService) { }
 
   ngOnInit() {
-    this.numberOfItems =0;
+    var numberOfItemsInLocalStorage = localStorage.getItem('numberOfItems');
+    if(numberOfItemsInLocalStorage!==null){
+      this.numberOfItems = +numberOfItemsInLocalStorage;
+    }
+    
+    this.headerService.change.subscribe( (numberOfitems)=>
+     this.handleNewItem(numberOfitems)
+    )
+  }
+
+  handleNewItem(numberOfItems){
+    console.log(numberOfItems);
+    localStorage.setItem('numberOfItems',numberOfItems);
+    this.numberOfItems = +localStorage.getItem('numberOfItems');
   }
 
 }

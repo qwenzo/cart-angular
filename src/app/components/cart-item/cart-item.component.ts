@@ -1,5 +1,6 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit , Input  } from '@angular/core';
 import {CartItem} from '../../interfaces/cartitem';
+import {HeaderService} from '../../services/header.service'
 
 @Component({
   selector: 'app-cart-item',
@@ -13,11 +14,17 @@ export class CartItemComponent implements OnInit {
 
   @Input('item') item: CartItem;
 
-  constructor() {
+
+
+  constructor(private headerService:HeaderService) {
    }
 
   ngOnInit() {
 
+  }
+
+  addNewItem(){
+    this.headerService.addNewItem();
   }
 
 }
