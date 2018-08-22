@@ -28,8 +28,8 @@
 .addButton{
      height: 30px;
     outline: none;
-    background-color: wheat;
-    border: none;
+    background-color:#4286f4;
+    border:none;
      padding: 0%;  
    /*  font-size: 24px; */
    font-weight: 600;
@@ -49,5 +49,5 @@
 }
 
 .addButton:focus:active{
-    background-color: green !important;
+    background-color: #0b51c1 !important;
 }
