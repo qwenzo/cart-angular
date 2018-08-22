@@ -9,7 +9,7 @@
     box-shadow:0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-.name{
+.font{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 24;
     font-weight: 600
@@ -33,9 +33,7 @@
      padding: 0%;  
    /*  font-size: 24px; */
    font-weight: 600;
-   width:10%;
-   
-    
+   width:10%;   
     
 }
 
