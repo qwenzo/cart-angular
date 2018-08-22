@@ -25,3 +25,29 @@
    margin-left: 2%;
    margin-right: 2%;
 }
+.addButton{
+     height: 30px;
+    outline: none;
+    background-color: wheat;
+    border: none;
+     padding: 0%;  
+   /*  font-size: 24px; */
+   font-weight: 600;
+   width:10%;
+   
+    
+    
+}
+
+.addButtonContainer{
+    text-align: center; 
+    
+}
+
+.addButton:hover{
+    background-color: red;
+}
+
+.addButton:focus:active{
+    background-color: green !important;
+}
