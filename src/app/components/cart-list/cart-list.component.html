@@ -1,7 +1,13 @@
-<div class="d-flex flex-row flex-wrap p-5">
-    <app-cart-item class="m-2"> </app-cart-item>
-    <app-cart-item class="m-2"> </app-cart-item>
-    <app-cart-item class="m-2"> </app-cart-item>
-    <app-cart-item class="m-2"> </app-cart-item>
-    <app-cart-item class="m-2"> </app-cart-item>
-  </div>
+<!-- <div class="d-flex flex-row flex-wrap p-5">
+    <app-cart-item  class="m-2"> </app-cart-item>
+    <app-cart-item  class="m-2"> </app-cart-item>
+    <app-cart-item  class="m-2"> </app-cart-item>
+    <app-cart-item  class="m-2"> </app-cart-item>
+    <app-cart-item  class="m-2"> </app-cart-item>
+  </div> -->
+
+  <div class="d-flex flex-row flex-wrap p-5"  >
+    <div *ngFor="let item of items" >
+      <app-cart-item [item]="item"> </app-cart-item>
+      <div>
+    </div> 
