@@ -36,7 +36,7 @@
    font-weight: 600;
   overflow: hidden;
     width:10%;
-  transition: width 600ms ease-out;
+  transition: width 500ms ease-out;
    
     
 }
