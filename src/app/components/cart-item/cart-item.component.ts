@@ -22,7 +22,6 @@ export class CartItemComponent implements OnInit {
   ngOnInit() {
 
   }
-
   addNewItem(){
     this.headerService.addNewItem(this.item);
   }
@@ -34,5 +33,4 @@ export class CartItemComponent implements OnInit {
   removeItem(){
     this.headerService.removeItem(this.item);
   }
-
 }

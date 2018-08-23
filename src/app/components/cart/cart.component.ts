@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormService} from '../../services/form.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  isOpen:boolean;
+
+  constructor(private formService:FormService) { }
 
   ngOnInit() {
+    this.isOpen=false;
+    this.formService.click.subscribe(
+      (isOpen)=>{
+        this.isOpen = isOpen;
+      }
+    )
   }
+
+
 
 }

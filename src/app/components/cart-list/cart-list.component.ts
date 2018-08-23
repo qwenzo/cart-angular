@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CartItem} from '../../interfaces/cartitem';
+import {FormService} from '../../services/form.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {CartItem} from '../../interfaces/cartitem';
 })
 export class CartListComponent implements OnInit {
   items:CartItem[];
-  constructor() { }
+  constructor(private formService:FormService) { }
 
   ngOnInit() {
     this.items=[
@@ -20,6 +21,11 @@ export class CartListComponent implements OnInit {
       {id:4,name:'PEACH',price:5,img:'../../../assets/Harvester-Peach-Tree-3-450w.jpg',Qty:0}
     ]
 
+  }
+
+  onProccedClick(){
+    this.formService.viewPopup();
+    
   }
 
 }
