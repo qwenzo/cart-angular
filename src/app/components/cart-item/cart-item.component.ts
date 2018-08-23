@@ -24,8 +24,6 @@ export class CartItemComponent implements OnInit {
   }
 
   addNewItem(){
-    
-    this.headerService.incrementNumberOfItems();
     this.headerService.addNewItem(this.item);
   }
 
