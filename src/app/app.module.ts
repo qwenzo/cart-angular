@@ -7,6 +7,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartFormComponent } from './components/cart-form/cart-form.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CartFormComponent } from './components/cart-form/cart-form.component';
     CartFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [HeaderService],
   bootstrap: [AppComponent]
