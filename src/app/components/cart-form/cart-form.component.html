@@ -1,10 +1,34 @@
 <div class="shadow-sm container">
   hhh
   <form>
-    <div class="form-group">
-      <label for="streetName"> </label>
-      <input class="form-control" type="text" id="streetName" required>
+    <div class="d-flex flex-row">
+    <div class="m-3 w-100 form-group">
+      <label for="streetName">street Name</label>
+      <input [(ngModel)]="form.streetName" class="form-control" type="text" id="streetName" name="streetName" #streetName="ngModel" required>
+      <div [hidden]="streetName.valid || streetName.pristine" class="m-1 alert alert-danger">street name is required</div>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="m-3 w-100 form-group">
+        <label for="streetNumber">street Number</label>
+        <input [(ngModel)]="form.streetNumber" class="form-control" type="text" id="streetNumber" name="streetNumber" #streetNumber="ngModel" required>
+        <div [hidden]="streetNumber.valid || streetNumber.pristine" class="m-1 alert alert-danger">street number is required</div>
+      </div>
+    </div>
+    <div class="d-flex flex-row">
+        <div class="m-3 w-100 form-group">
+            <label for="country">Country</label>
+            <input [(ngModel)]="form.country" class="form-control" type="text" id="country" name="country" #country="ngModel" required>
+            <div [hidden]="country.valid || country.pristine" class="m-1 alert alert-danger">country is required</div>
+          </div>
+          <div class="m-3 w-100 form-group">
+              <label for="city">City</label>
+              <input [(ngModel)]="form.city" class="form-control" type="text" id="city" name="city" #city="ngModel" required>
+              <div [hidden]="city.valid || city.pristine" class="m-1 alert alert-danger">city is required</div>
+            </div>
+          </div>
+          <div class="m-3 w-25 form-group">
+              <label for="zip">Zip Code</label>
+              <input [(ngModel)]="form.zip" class="form-control" type="text" id="zip" name="zip" #streetName="ngModel" >
+            </div>
+    <button type="submit" class="m-3 btn btn-success">Submit</button>
   </form>
   </div>
