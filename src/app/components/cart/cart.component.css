@@ -1,13 +1,12 @@
 .cartContainer{
     margin-top: 2%;
     margin-bottom: 2%;
-  /* 
-  
-  margin-left: 20%;
-  margin-right: 20%; */
+   
+/*   
+  margin-left: 15%;
+  margin-right: 15%;  */
   border-radius: 2%;
   white-space: nowrap;
   overflow-y:hidden;
-  border:1px solid #ddd;
 
 }

@@ -1,16 +1,22 @@
-<div class="m-2 p-2 cartItemContainer d-flex flex-column">
-    <span class="m-2 justify-content-center align-self-center d-flex font">
+<div class="m-2 p-2 cartItemContainer row align-items-center d-flex flex-row">
+   
+    <div class="col">
+      <img class="img" width=100px height=100px src=  {{item.img}} /> 
+    </div>
+
+    <span class="col font">
         {{item.name}}
       </span>
-    <div class="">
-      <img class="img" width=250px height=200px src=  {{item.img}} />
-    </div>
-    <div class=" d-flex flex-column  detailsContainer">
-    <span class="font">
-      {{item.price}}$
-      </span>
-      <div class="addButtonContainer d-flex flex-row-reverse">
+
+      <span class="col font">
+          {{item.price}}$
+          </span>
+          <span class="col font">
+              {{item.Qty}}
+              </span>
+    <div class=" d-flex flex-row  ">
+      <div class="addButtonContainer d-flex flex-row">
       <button (mouseover)="onHoverAddButton($event)" (click)="addNewItem()" class="m-1 addButton btn-lg btn-primary"> + </button>
-      </div>
+      </div> 
   </div>
   </div>
