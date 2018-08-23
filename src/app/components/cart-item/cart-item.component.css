@@ -2,6 +2,7 @@
     box-shadow:0 0px 0px 0px;
     border-radius: 2%;
     border:1px solid #ddd;
+    transition: box-shadow 500ms ease-in-out
 }
 
 .cartItemContainer:hover{
@@ -33,7 +34,10 @@
      padding: 0%;  
    /*  font-size: 24px; */
    font-weight: 600;
-   width:10%;   
+  overflow: hidden;
+    width:10%;
+  transition: width 600ms ease-out;
+   
     
 }
 
@@ -43,9 +47,12 @@
 }
 
 .addButton:hover{
+    width:100%;
+    content: 'Add To Cart';
     background-color: red;
 }
 
 .addButton:focus:active{
+   
     background-color: #0b51c1 !important;
 }

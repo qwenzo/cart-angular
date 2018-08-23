@@ -27,4 +27,8 @@ export class CartItemComponent implements OnInit {
     this.headerService.addNewItem();
   }
 
+  onHoverAddButton(e){
+   // e.target.innerHTML="Add To Cart";
+  }
+
 }
