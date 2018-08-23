@@ -13,11 +13,11 @@ export class CartListComponent implements OnInit {
 
   ngOnInit() {
     this.items=[
-      {name:'WATERMELON',price:1,img:'../../../assets/23fruit-superJumbo.jpg',Qty:1},
-      {name:'BANANA',price:2,img:'../../../assets/How-Many-Calories-Are-in-a-Banana-1440x810.jpg',Qty:1},
-      {name:'ORANGE',price:3,img:'../../../assets/494037460-612x612.jpg',Qty:1},
-      {name:'APPLE',price:4,img:'../../../assets/apple-fruit.jpg',Qty:1},
-      {name:'PEACH',price:5,img:'../../../assets/Harvester-Peach-Tree-3-450w.jpg',Qty:1}
+      {id:0,name:'WATERMELON',price:1,img:'../../../assets/23fruit-superJumbo.jpg',Qty:1},
+      {id:1,name:'BANANA',price:2,img:'../../../assets/How-Many-Calories-Are-in-a-Banana-1440x810.jpg',Qty:1},
+      {id:2,name:'ORANGE',price:3,img:'../../../assets/494037460-612x612.jpg',Qty:1},
+      {id:3,name:'APPLE',price:4,img:'../../../assets/apple-fruit.jpg',Qty:1},
+      {id:4,name:'PEACH',price:5,img:'../../../assets/Harvester-Peach-Tree-3-450w.jpg',Qty:1}
     ]
 
   }

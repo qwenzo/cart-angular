@@ -21,12 +21,11 @@ export class HeaderService {
 
    incrementNumberOfItems(){
      this.change.emit(this.numberOfItems+=1);
-     console.log(this.numberOfItems);
   }
 
   addNewItem(item:CartItem){
     for(let i=0;i<this.items.length;i++){
-      if(this.items[i].name==item.name){
+      if(this.items[i].id==item.id){
         this.items[i].Qty+=1;
         return;
       }
@@ -37,7 +36,7 @@ export class HeaderService {
 
   removeItem(item:CartItem){
     for(let i=0;i<this.items.length;i++){
-      if(this.items[i].name==item.name){
+      if(this.items[i].id==item.id){
         if(this.items[i].Qty >= 1)
         this.items[i].Qty-=1;
         else if(this.items[i].Qty==0){
