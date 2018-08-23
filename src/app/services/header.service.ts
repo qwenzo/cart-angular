@@ -24,18 +24,23 @@ export class HeaderService {
   }
 
   addNewItem(item:CartItem){
-    for(let i=0;i<this.items.length;i++){
+    item.Qty+=1;
+    /* for(let i=0;i<this.items.length;i++){
       if(this.items[i].id==item.id){
         this.items[i].Qty+=1;
         return;
       }
 
     }
-   this.items.push(item);
+   this.items.push(item); */
   }
 
   removeItem(item:CartItem){
-    for(let i=0;i<this.items.length;i++){
+    if(item.Qty!==0){
+      item.Qty-=1;
+    }
+    
+   /*  for(let i=0;i<this.items.length;i++){
       if(this.items[i].id==item.id){
         if(this.items[i].Qty >= 1)
         this.items[i].Qty-=1;
@@ -44,7 +49,7 @@ export class HeaderService {
         }
       }
 
-    }
+    } */
   }
 
 

@@ -1,10 +1,7 @@
 .cartItemContainer{
     box-shadow:0 0px 0px 0px;
-    border-radius: 2%;
     border:1px solid #ddd;
     transition: box-shadow 500ms ease-in-out;
-    display: table-row;
-    border-spacing: 5px;
 }
 
 .cartItemContainer:hover{

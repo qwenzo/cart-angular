@@ -33,4 +33,8 @@ export class CartItemComponent implements OnInit {
    // e.target.innerHTML="Add To Cart";
   }
 
+  removeItem(){
+    this.headerService.removeItem(this.item);
+  }
+
 }

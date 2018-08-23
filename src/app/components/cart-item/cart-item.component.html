@@ -1,4 +1,4 @@
-<div class="m-2 p-2 cartItemContainer row align-items-center d-flex flex-row">
+<div class=" m-2 p-2 cartItemContainer row align-items-center d-flex flex-row">
    
     <div class="col">
       <img class="img" width=100px height=100px src=  {{item.img}} /> 
@@ -17,6 +17,7 @@
     <div class=" d-flex flex-row  ">
       <div class="addButtonContainer d-flex flex-row">
       <button (mouseover)="onHoverAddButton($event)" (click)="addNewItem()" class="m-1 addButton btn-lg btn-primary"> + </button>
+      <button (mouseover)="onHoverAddButton($event)" (click)="removeItem()" class="m-1 addButton btn-lg btn-primary"> - </button>
       </div> 
   </div>
   </div>
