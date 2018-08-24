@@ -14,7 +14,7 @@ export class CartFormComponent implements OnInit {
 
   ngOnInit() {
     this.numbs =[];
-    this.form = {streetName:null,streetNumber:null,city:null,country:null}
+    this.form = {streetName:null,streetNumber:null,city:null,country:null,phoneNumbers:[]}
   }
 
   closeForm(e){

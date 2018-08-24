@@ -3,6 +3,7 @@ export interface CartForm {
    streetNumber:number,
    city:string,
    country:string,
-   zip?:number
+   zip?:number,
+   phoneNumbers:number[]
 
 }
