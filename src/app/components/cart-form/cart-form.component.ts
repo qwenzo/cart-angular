@@ -9,9 +9,11 @@ import {FormService} from '../../services/form.service';
 })
 export class CartFormComponent implements OnInit {
   form:CartForm;
+  numbs:number[];
   constructor(private formService:FormService) { }
 
   ngOnInit() {
+    this.numbs =[];
     this.form = {streetName:null,streetNumber:null,city:null,country:null}
   }
 
@@ -23,6 +25,10 @@ export class CartFormComponent implements OnInit {
 
   submit(e){
     console.log(this.form);
+  }
+
+  add(){
+  
   }
 
 }

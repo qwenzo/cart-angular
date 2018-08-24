@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
     this.isOpen=false;
     this.formService.click.subscribe(
       (isOpen)=>{
-        console.log(isOpen);
         this.isOpen = isOpen;
       }
     )
