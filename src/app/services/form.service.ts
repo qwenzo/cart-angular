@@ -14,6 +14,7 @@ export class FormService {
    }
 
    viewPopup(){
-     this.click.emit(!this.isOpen);
+    this.isOpen=!this.isOpen;
+     this.click.emit(this.isOpen);
    }
 }

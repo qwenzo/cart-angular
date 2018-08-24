@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CartForm} from '../../interfaces/cartform';
+import {FormService} from '../../services/form.service';
 
 @Component({
   selector: 'app-cart-form',
@@ -8,10 +9,16 @@ import {CartForm} from '../../interfaces/cartform';
 })
 export class CartFormComponent implements OnInit {
   form:CartForm;
-  constructor() { }
+  constructor(private formService:FormService) { }
 
   ngOnInit() {
     this.form = {streetName:null,streetNumber:null,city:null,country:null}
+  }
+
+  closeForm(e){
+    if(e.target.classList.contains('formContainer')){
+      this.formService.viewPopup();
+    }
   }
 
 }

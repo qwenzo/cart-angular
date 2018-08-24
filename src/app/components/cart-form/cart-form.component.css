@@ -27,3 +27,8 @@
     border-radius: 10px;
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
+
+.closeBtn{
+    cursor: pointer;
+    font-size: 24px;
+}
