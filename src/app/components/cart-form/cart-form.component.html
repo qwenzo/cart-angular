@@ -1,43 +1,55 @@
 <div (click)="closeForm($event)" class="shadow-sm formContainer ">
-  <form class='w-25 container formStyle bg-white' (ngSubmit)="submit($event)" #heroForm="ngForm">
+  <form class='w-25 container formStyle bg-white' (ngSubmit)="submit($event)"  #cartForm="ngForm">
 <div class="d-flex justify-content-center align-items-center">please fill your information to procced with your cart</div>
 
-    <div class=" m-3 form-group">
+    <div class="  form-group">
       <label for="streetName">Street Name *</label>
-      <input [(ngModel)]="form.streetName" class="form-control" type="text" id="streetName" name="streetName" #streetName="ngModel" required>
+      <input  [(ngModel)]="form.streetName" class="form-control" type="text" id="streetName"  name="streetName" #streetName="ngModel" required>
       <div [hidden]="streetName.valid || streetName.pristine" class="m-1 alert alert-danger">street name is required</div>
-      <div>{{streetName.valid}} {{streetName.pristine}} </div>
     </div>
-    <div class="m-3 form-group">
+    <div class=" form-group">
         <label for="streetNumber">Street Number *</label>
         <input [(ngModel)]="form.streetNumber" class="form-control" type="text" id="streetNumber" name="streetNumber" #streetNumber="ngModel" required>
         <div [hidden]="streetNumber.valid || streetNumber.pristine" class="m-1 alert alert-danger">street number is required</div>
-        <div>{{streetNumber.valid}}</div>
       </div>
 
 
-        <div class="m-3 form-group">
+        <div class=" form-group">
             <label for="country">Country *</label>
-            <input [(ngModel)]="form.country" class="form-control" type="text" id="country" name="country" #country="ngModel" required>
+            <input required minlength="2" [(ngModel)]="form.country" class="form-control" type="text" id="country" name="country" #country="ngModel" required>
             <div [hidden]="country.valid || country.pristine" class="m-1 alert alert-danger">country is required</div>
           </div>
-          <div class="m-3 form-group">
+          <div class=" form-group">
               <label for="city">City *</label>
-              <input [(ngModel)]="form.city" class="form-control" type="text" id="city" name="city" #city="ngModel" required>
+              <input required minlength="2" [(ngModel)]="form.city" class="form-control" type="text" id="city" name="city" #city="ngModel" required>
               <div [hidden]="city.valid || city.pristine" class="m-1 alert alert-danger">city is required</div>
             </div>
 
-          <div class="m-3 form-group">
+          <div class=" form-group">
               <label for="zip">Zip Code</label>
-              <input [(ngModel)]="form.zip" class="form-control" type="text" id="zip" name="zip" #streetName="ngModel" >
+              <input [(ngModel)]="form.zip" class="form-control" type="text" id="zip" name="zip" #zip="ngModel" pattern="[0-9]*" >
+              <span *ngIf="zip.errors?.pattern" class="m-1 invalidInput" >Zip Code Should be in numbers</span>
             </div>
-
-            <div *ngFor="let n of numbs">
-                <div> {{numbs}}</div>
+            <div class=" form-group">
+                <label for="zip">Phone Number</label>
+                <input [(ngModel)]="form.phoneNumbers[0]" class="form-control" type="tel" id="phoneNumber" name="phoneNumber0" #phoneNumber="ngModel" required>
+               
               </div>
-        <button (click)="add()"> add </button>
+  
+
+            <div *ngFor="let n of numbs; let i=index">
+                <div class="input-group  form-group">
+                    <input  [(ngModel)]="form.phoneNumbers[i+1]" class="form-control" type="tel" id="phoneNumber" name=phoneNumber{{i+1}}  #phoneNumber="ngModel" required>
+                    <div class="input-group-append">
+                        <button (click)="remove(i+1,$event)" class="btn btn-outline-secondary" id="basic-addon2">remove</button>
+                      </div>
+                  </div>
+              </div>
+              <div class=" form-group">
+                  <button class="btn btn-success"  (click)="add()"> add a new phone number </button>
+            </div>
        
-    <button [disabled]="!heroForm.form.valid" type="submit" class="m-3 btn btn-success">Submit</button> 
+    <button [disabled]="!cartForm.form.valid" type="submit" class="m-3 btn btn-success">Submit</button> 
            
   </form>
   </div>
