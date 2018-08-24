@@ -21,4 +21,8 @@ export class CartFormComponent implements OnInit {
     }
   }
 
+  submit(e){
+    console.log(this.form);
+  }
+
 }

@@ -1,5 +1,5 @@
 <div (click)="closeForm($event)" class="shadow-sm formContainer ">
-  <form class='container formStyle bg-white'>
+  <form class='container formStyle bg-white' (ngSubmit)="submit($event)" #heroForm="ngForm">
     <div class="d-flex flex-row">
     <div class="m-3 w-100 form-group">
       <label for="streetName">street Name</label>
@@ -28,6 +28,6 @@
               <label for="zip">Zip Code</label>
               <input [(ngModel)]="form.zip" class="form-control" type="text" id="zip" name="zip" #streetName="ngModel" >
             </div>
-    <button type="submit" class="m-3 btn btn-success">Submit</button>
+    <button [disabled]="!heroForm.form.valid" type="submit" class="m-3 btn btn-success">Submit</button>
   </form>
   </div>
