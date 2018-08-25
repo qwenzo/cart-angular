@@ -1,54 +1,64 @@
 <div (click)="closeForm($event)" class="shadow-sm formContainer ">
-  <form class=' container formStyle bg-white' (ngSubmit)="submit($event)"  #cartForm="ngForm">
-<div class="d-flex justify-content-center align-items-center">please fill your information to procced with your cart</div>
+  <form class=' container formStyle bg-white' (ngSubmit)="submit()"  #cartForm="ngForm">
+<div class=" p-3 d-flex justify-content-center ">please fill your information to procced with your cart</div>
 
     <div class="  form-group">
       <label for="streetName">Street Name *</label>
       <input  [(ngModel)]="form.streetName" class="form-control" type="text" id="streetName"  name="streetName" #streetName="ngModel" required>
-      <div [hidden]="streetName.valid || streetName.pristine" class="m-1 alert alert-danger">street name is required</div>
+      <span *ngIf="streetName.touched && streetName.errors?.required" class="m-1 text-danger">Street name is required</span>
     </div>
     <div class=" form-group">
         <label for="streetNumber">Street Number *</label>
         <input [(ngModel)]="form.streetNumber" class="form-control" type="text" id="streetNumber" name="streetNumber" #streetNumber="ngModel" required>
-        <div [hidden]="streetNumber.valid || streetNumber.pristine" class="m-1 alert alert-danger">street number is required</div>
+        <span *ngIf="streetNumber.touched && streetNumber.errors?.required" class="m-1 text-danger">Street number is required</span>
       </div>
 
 
         <div class=" form-group">
             <label for="country">Country *</label>
-            <input required minlength="2" [(ngModel)]="form.country" class="form-control" type="text" id="country" name="country" #country="ngModel" required>
-            <div [hidden]="country.valid || country.pristine" class="m-1 alert alert-danger">country is required</div>
+            <input  pattern="[a-zA-Z ]*" required minlength="2" [(ngModel)]="form.country" class="form-control" type="text" id="country" name="country" #country="ngModel" required>
+            <span *ngIf="country.touched && country.errors?.required" class="m-1 text-danger">country is required</span>
+            <span *ngIf="country.errors?.minlength" class="m-1 text-danger">city should be at least 2 letters</span>
+            <span *ngIf="country.errors?.pattern" class="m-1 text-danger">country should be in letters</span>
           </div>
           <div class=" form-group">
               <label for="city">City *</label>
-              <input required minlength="2" [(ngModel)]="form.city" class="form-control" type="text" id="city" name="city" #city="ngModel" required>
-              <div [hidden]="city.valid || city.pristine" class="m-1 alert alert-danger">city is required</div>
+              <input  pattern="[a-zA-Z ]*"  required minlength="2" [(ngModel)]="form.city" class="form-control" type="text" id="city" name="city" #city="ngModel" required>
+              <span *ngIf="city.touched && city.errors?.required" class="m-1 text-danger">city is required</span>
+              <span *ngIf="city.errors?.minlength" class="m-1 text-danger">city should be at least 2 letters</span>
+              <span *ngIf="city.errors?.pattern" class="m-1 text-danger">city should be in letters</span>
             </div>
 
           <div class=" form-group">
               <label for="zip">Zip Code</label>
               <input [(ngModel)]="form.zip" class="form-control" type="text" id="zip" name="zip" #zip="ngModel" pattern="[0-9]*" >
-              <span *ngIf="zip.errors?.pattern" class="m-1 invalidInput" >Zip Code Should be in numbers</span>
+              <span *ngIf="zip.errors?.pattern" class="m-1 text-danger" >Zip Code Should be in numbers</span>
             </div>
             <div class=" form-group">
                 <label for="zip">Phone Number</label>
-                <input [(ngModel)]="form.phoneNumbers[0]" class="form-control" type="tel" id="phoneNumber" name="phoneNumber0" #phoneNumber="ngModel" required>
-               
+                <input [(ngModel)]="form.phoneNumbers[0]" class="form-control" type="tel" id="phoneNumber" name="phoneNumber0" pattern="[0-9]*" #phoneNumber0="ngModel" required>
+                <span *ngIf="phoneNumber0.errors?.pattern" class="m-1 text-danger" >Zip Code Should be in numbers</span>
               </div>
   
 
             <div *ngFor="let n of numbs; let i=index">
                 <div class="input-group  form-group">
-                    <input  [(ngModel)]="form.phoneNumbers[i+1]" class="form-control" type="tel" id="phoneNumber" name=phoneNumber{{i+1}}  #phoneNumber="ngModel" required>
+                    <input  [(ngModel)]="form.phoneNumbers[i+1]" class="form-control" type="tel" id="phoneNumber" name=phoneNumber{{i+1}} pattern="[0-9]*"  #phoneNumber{{i+1}}="ngModel" required>
                     <div class="input-group-append">
                         <button (click)="remove(i+1,$event)" class="btn btn-outline-secondary" id="basic-addon2">remove</button>
                       </div>
+                     <!--  <span *ngIf="phoneNumber+(i+1).errors?.pattern" class="m-1 invalidInput" >Zip Code Should be in numbers</span> -->
+                     <span  class="m-1 invalidInput" >{{phoneNumber1}}</span>
                   </div>
               </div>
               <div class=" form-group">
-                  <button type="button" class="btn btn-success"  (click)="add()"> add a new phone number </button>
+                  <button type="button" class="btn btn-success"  (click)="addNewNumber()"> add a new phone number </button>
             </div>
-       
+            <div class=" form-group">
+                <span *ngIf=viewFormMsg class="d-flex justify-content-center text-success">Thank you for filling out your information!</span>
+                <span *ngIf=viewFormMsg class="d-flex justify-content-center text-success">Your information have been saved in your profile</span>
+          </div>
+           
     <button [disabled]="!cartForm.form.valid" type="submit" class="m-3 btn btn-success">Submit</button> 
            
   </form>

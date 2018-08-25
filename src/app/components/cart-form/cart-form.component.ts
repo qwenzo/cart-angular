@@ -11,19 +11,13 @@ import {FormService} from '../../services/form.service';
 export class CartFormComponent implements OnInit {
   form:CartForm;
   numbs:number[];
-  cartForm;
+  viewFormMsg:boolean;
   constructor(private formService:FormService) { }
 
   ngOnInit() {
-    
+    this.viewFormMsg = false;
     this.numbs =[];
     this.form = {streetName:null,streetNumber:null,city:null,country:null,phoneNumbers:[]}
-    /* this.cartForm = new FormGroup(
-      {
-        streetName:new FormControl(""),
-      }
-    )
- */
   }
 
   closeForm(e){
@@ -32,12 +26,12 @@ export class CartFormComponent implements OnInit {
     }
   }
 
-  submit(e){
-    console.log( this.form);
+  submit(){
     this.formService.addForm(this.form);
+    this.viewFormMsg = true;
   }
 
-  add(){
+  addNewNumber(){
     console.log(this.form.phoneNumbers.length);
     this.numbs.push(1);
   }
