@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HeaderService} from '../../services/header.service'
+import {HeaderService} from '../../services/header.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,10 +9,10 @@ import {HeaderService} from '../../services/header.service'
 export class HeaderComponent implements OnInit {
   numberOfItems:number;
 
-  constructor(private headerService:HeaderService) { }
+  constructor(private headerService:HeaderService,private cookieService:CookieService) { }
 
   ngOnInit() {
-    var numberOfItemsInLocalStorage = localStorage.getItem('numberOfItems');
+    var numberOfItemsInLocalStorage = this.cookieService.get('numberOfItems');
     if(numberOfItemsInLocalStorage!==null){
       this.numberOfItems = +numberOfItemsInLocalStorage;
     }
@@ -22,9 +23,8 @@ export class HeaderComponent implements OnInit {
   }
 
   handleNewItem(numberOfItems){
-    console.log(numberOfItems);
-    localStorage.setItem('numberOfItems',numberOfItems);
-    this.numberOfItems = +localStorage.getItem('numberOfItems');
+    this.cookieService.set('numberOfItems',numberOfItems);
+    this.numberOfItems = +this.cookieService.get('numberOfItems');
   }
 
 }

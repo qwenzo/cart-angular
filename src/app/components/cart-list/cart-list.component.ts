@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CartItem} from '../../interfaces/cartitem';
 import {FormService} from '../../services/form.service';
+import {HeaderService} from '../../services/header.service';
+import {CookieService} from 'ngx-cookie-service';
 
 
 @Component({
@@ -10,22 +12,27 @@ import {FormService} from '../../services/form.service';
 })
 export class CartListComponent implements OnInit {
   items:CartItem[];
-  constructor(private formService:FormService) { }
-
-  ngOnInit() {
-    this.items=[
-      {id:0,name:'WATERMELON',price:1,img:'../../../assets/23fruit-superJumbo.jpg',Qty:0},
-      {id:1,name:'BANANA',price:2,img:'../../../assets/How-Many-Calories-Are-in-a-Banana-1440x810.jpg',Qty:0},
-      {id:2,name:'ORANGE',price:3,img:'../../../assets/494037460-612x612.jpg',Qty:0},
-      {id:3,name:'APPLE',price:4,img:'../../../assets/apple-fruit.jpg',Qty:0},
-      {id:4,name:'PEACH',price:5,img:'../../../assets/Harvester-Peach-Tree-3-450w.jpg',Qty:0}
-    ]
+  constructor(private formService:FormService,private cookieService:CookieService,private headerService:HeaderService) { 
+    this.headerService.changeInItems.subscribe(
+      (items:CartItem[])=>{
+        this.handleChangeInItems(items);
+      }
+    )
 
   }
 
-  onProccedClick(){
+  ngOnInit() {
+  this.items=this.headerService.getItems();
+  }
+
+  onProceedClick(){
     this.formService.viewPopup();
     
+  }
+
+  handleChangeInItems(items:CartItem[]){
+    this.items=items;
+    this.cookieService.set('items',JSON.stringify(this.items));
   }
 
 }

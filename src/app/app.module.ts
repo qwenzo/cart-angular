@@ -9,6 +9,7 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartFormComponent } from './components/cart-form/cart-form.component';
 import { FormsModule }   from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormsModule }   from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [HeaderService,FormService],
+  providers: [HeaderService,FormService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
