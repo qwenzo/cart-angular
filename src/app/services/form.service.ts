@@ -21,9 +21,12 @@ export class FormService {
    }
 
    getForm(){
-     return this.form;
+    if(this.cookieService.check('form')){
+      this.form = JSON.parse(this.cookieService.get('form'));
+      return this.form;
+    }
+  }
 
-   }
 
    addForm(form:CartForm){
     this.form = form;

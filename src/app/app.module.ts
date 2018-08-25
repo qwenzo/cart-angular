@@ -10,7 +10,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { CartFormComponent } from './components/cart-form/cart-form.component';
 import { FormsModule }   from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
-import { UserDetailsComponent } from './components/user-details/user-details.component'
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import {RouterModule} from '@angular/router';
+import {routes} from './routes';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [HeaderService,FormService,CookieService],
   bootstrap: [AppComponent]
