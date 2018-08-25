@@ -1,12 +1,51 @@
-<div class="p-2 mx-auto font detailsContainer shadow-sm">
-  <div>
-   Street Name:
+<div class="p-2 mx-auto font detailsContainer shadow-sm ">
+  <div class="m-2 d-flex justify-content-between flex-row">
+    <div >
+    Street Name:
+    </div>
+    <div class="">
+      {{form.streetName}}
+      </div>
   </div>
-  <div class="m-2">
-     {{form.streetName}}
-     </div>
-  <div >
+  <div class="m-2 d-flex justify-content-between flex-row">
+      <div >
       Street Number:
-     </div>
+      </div>
+      <div class="">
+        {{form.streetName}}
+        </div>
+    </div>
+    <div class="m-2 d-flex justify-content-between flex-row">
+        <div >
+       City:
+        </div>
+        <div class="">
+          {{form.city}}
+          </div>
+      </div>
+      <div class="m-2 d-flex justify-content-between flex-row">
+          <div >
+          Country:
+          </div>
+          <div class="">
+            {{form.country}}
+            </div>
+        </div>
+        <div class="m-2 d-flex justify-content-between flex-row">
+            <div >
+            Zip Code:
+            </div>
+            <div class="">
+              {{form.zip}}
+              </div>
+          </div>
+          <div class="m-2 d-flex justify-content-between flex-row">
+              <div >
+              Phone Numbers:
+              </div>
+              <div *ngFor="let number of form.phoneNumbers" class="">
+                {{number}}
+                </div>
+            </div>
 
 </div>

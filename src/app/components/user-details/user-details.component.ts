@@ -12,7 +12,6 @@ export class UserDetailsComponent implements OnInit {
   form:CartForm;
 
   constructor(private formService:FormService,private cookieService:CookieService) {
-    console.log(this.cookieService.getAll()); 
     this.form = this.formService.getForm();
   }
 
