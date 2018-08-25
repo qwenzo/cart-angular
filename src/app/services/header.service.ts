@@ -35,7 +35,6 @@ export class HeaderService {
 
   checkItemsInCookies(){
     if(this.cookieService.check('items')){
-      console.log(this.cookieService.get('items'));
       this.items = JSON.parse(this.cookieService.get('items')) ;
       
     }

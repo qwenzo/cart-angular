@@ -3,7 +3,7 @@
 }
 
 .cartIconContainer{
-    margin-right: 3%
+    margin-right: 1%
 
 }
 
@@ -25,4 +25,11 @@
     position: absolute;
     font-family:  Arial, sans-serif
     
+}
+
+.userIcon{
+    font-size: 35px;
+    margin-right: 1%;
+    cursor: pointer;
+
 }
