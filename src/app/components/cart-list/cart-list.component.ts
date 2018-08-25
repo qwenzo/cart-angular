@@ -35,4 +35,13 @@ export class CartListComponent implements OnInit {
     this.cookieService.set('items',JSON.stringify(this.items));
   }
 
+  checkQuantity(){
+    for(let i=0;i<this.items.length;i++){
+      if(this.items[i].Qty>0){
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
