@@ -18,11 +18,12 @@ export class CartListComponent implements OnInit {
         this.handleChangeInItems(items);
       }
     )
+    console.log(this.headerService.getItems());
+    this.items=this.headerService.getItems();
 
   }
 
   ngOnInit() {
-  this.items=this.headerService.getItems();
   }
 
   onProceedClick(){

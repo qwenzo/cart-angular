@@ -21,9 +21,11 @@ export class FormService {
    }
 
    getForm(){
+    console.log(this.cookieService.getAll()); 
     if(this.cookieService.check('form')){
       this.form = JSON.parse(this.cookieService.get('form'));
-      return this.form;
+    // console.log(this.cookieService.); 
+      return JSON.parse(this.cookieService.getAll().form)
     }
   }
 
@@ -33,4 +35,5 @@ export class FormService {
     this.cookieService.set('form',JSON.stringify(this.form));
 
    }
+
 }

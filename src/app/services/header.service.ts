@@ -30,13 +30,17 @@ export class HeaderService {
   }
 
   getItems(){
-    return this.items;
+    if(this.cookieService.check('items')){
+      this.items = JSON.parse(this.cookieService.getAll().items) ;
+      console.log(this.items);
+      return this.items;
+    }
   }
 
   checkItemsInCookies(){
+   
     if(this.cookieService.check('items')){
       this.items = JSON.parse(this.cookieService.get('items')) ;
-      
     }
     else{
       this.items = [

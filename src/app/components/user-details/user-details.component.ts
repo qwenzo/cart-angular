@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CartForm} from '../../interfaces/cartform';
 import {FormService} from '../../services/form.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-user-details',
@@ -10,10 +11,13 @@ import {FormService} from '../../services/form.service';
 export class UserDetailsComponent implements OnInit {
   form:CartForm;
 
-  constructor(private formService:FormService) { }
+  constructor(private formService:FormService,private cookieService:CookieService) {
+    console.log(this.cookieService.getAll()); 
+    this.form = this.formService.getForm();
+  }
 
   ngOnInit() {
-    this.form = this.formService.getForm();
+ 
     }
     
 

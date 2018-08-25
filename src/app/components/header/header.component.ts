@@ -10,10 +10,10 @@ import { CookieService } from 'ngx-cookie-service';
 export class HeaderComponent implements OnInit {
   numberOfItems:number;
 
-  constructor(private headerService:HeaderService,private cookieService:CookieService, private formService:FormService) { }
+  constructor(private headerService:HeaderService,private cookieService:CookieService, private formService:FormService) { 
 
-  ngOnInit() {
     var numberOfItemsInLocalStorage = this.cookieService.get('numberOfItems');
+    console.log(numberOfItemsInLocalStorage);
     if(numberOfItemsInLocalStorage!==null){
       this.numberOfItems = +numberOfItemsInLocalStorage;
     }
@@ -21,6 +21,9 @@ export class HeaderComponent implements OnInit {
     this.headerService.change.subscribe( (numberOfitems)=>
      this.handleNewItem(numberOfitems)
     )
+  }
+
+  ngOnInit() {
   }
 
   handleNewItem(numberOfItems){
