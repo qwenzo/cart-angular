@@ -1,6 +1,7 @@
 import { Injectable , Output , EventEmitter } from '@angular/core';
 import {CartItem} from '../interfaces/cartitem';
 import { CookieService } from 'ngx-cookie-service';
+import {Cookie} from '../interfaces/cookie';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,16 +32,16 @@ export class HeaderService {
 
   getItems(){
     if(this.cookieService.check('items')){
-      this.items = JSON.parse(this.cookieService.getAll().items) ;
+      this.items =JSON.parse((<Cookie>this.cookieService.getAll()).items+"") ;
       console.log(this.items);
       return this.items;
     }
   }
 
   checkItemsInCookies(){
-   
+  
     if(this.cookieService.check('items')){
-      this.items = JSON.parse(this.cookieService.get('items')) ;
+      this.items = JSON.parse((<Cookie>this.cookieService.getAll()).items+"") ;
     }
     else{
       this.items = [
@@ -54,8 +55,15 @@ export class HeaderService {
     }
   }
 
+  getNumberOfItems(){
+    if(this.cookieService.check('numberOfItems')!==null){
+      this.numberOfItems = +JSON.parse((<Cookie>this.cookieService.getAll()).numberOfItems+"");
+      return this.numberOfItems;
+    }
+  }
+
   checkNumberOfItemsInCookies(){
-    var numberOfItemsInLocalStorage = this.cookieService.get('numberOfItems');
+    var numberOfItemsInLocalStorage = JSON.parse((<Cookie>this.cookieService.getAll()).numberOfItems+"");
     if(numberOfItemsInLocalStorage!==null){
       this.numberOfItems = +numberOfItemsInLocalStorage;
     }

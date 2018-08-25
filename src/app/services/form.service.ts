@@ -1,6 +1,7 @@
 import { Injectable , EventEmitter , Output } from '@angular/core';
 import {CartForm} from '../interfaces/cartform';
-import {CookieService} from 'ngx-cookie-service'
+import {CookieService} from 'ngx-cookie-service';
+import {Cookie} from '../interfaces/cookie';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,10 @@ export class FormService {
    }
 
    getForm(){
-    console.log(this.cookieService.getAll()); 
+    
     if(this.cookieService.check('form')){
-      this.form = JSON.parse(this.cookieService.get('form'));
-    // console.log(this.cookieService.); 
-      return JSON.parse(this.cookieService.getAll().form)
+      this.form = JSON.parse((<Cookie>this.cookieService.getAll()).form+"");
+      return  this.form
     }
   }
 
@@ -37,3 +37,6 @@ export class FormService {
    }
 
 }
+
+
+

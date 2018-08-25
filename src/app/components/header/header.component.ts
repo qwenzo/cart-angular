@@ -12,11 +12,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private headerService:HeaderService,private cookieService:CookieService, private formService:FormService) { 
 
-    var numberOfItemsInLocalStorage = this.cookieService.get('numberOfItems');
-    console.log(numberOfItemsInLocalStorage);
-    if(numberOfItemsInLocalStorage!==null){
-      this.numberOfItems = +numberOfItemsInLocalStorage;
-    }
+   this.numberOfItems=+this.headerService.getNumberOfItems();
     
     this.headerService.change.subscribe( (numberOfitems)=>
      this.handleNewItem(numberOfitems)
