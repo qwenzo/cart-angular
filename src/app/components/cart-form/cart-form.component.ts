@@ -37,21 +37,13 @@ export class CartFormComponent implements OnInit {
   }
 
   add(){
-    console.log(this);
     console.log(this.form.phoneNumbers.length);
     this.numbs.push(1);
   }
 
   remove(index,e){
-    let inputField = e.target.parentNode.parentNode;
-    let inputFieldParent = inputField.parentNode;
-    inputFieldParent.removeChild(inputField);
     this.form.phoneNumbers.splice(index,1);
-   /*  for(let i=0;i<this.form.phoneNumbers.length;i++){
-        if(this.form.phoneNumbers[i]>0){
-
-        }
-    } */
+    this.numbs.splice(index-1,1);
   }
 
 }
