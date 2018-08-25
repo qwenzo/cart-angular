@@ -9,7 +9,8 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartFormComponent } from './components/cart-form/cart-form.component';
 import { FormsModule }   from '@angular/forms';
-import {CookieService} from 'ngx-cookie-service'
+import {CookieService} from 'ngx-cookie-service';
+import { UserDetailsComponent } from './components/user-details/user-details.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {CookieService} from 'ngx-cookie-service'
     CartItemComponent,
     CartListComponent,
     HeaderComponent,
-    CartFormComponent
+    CartFormComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
