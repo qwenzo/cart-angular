@@ -1,9 +1,12 @@
-<div class="p-2 mx-auto font detailsContainer shadow-sm">
+<div class="p-2 mx-auto font detailsContainer shadow">
+    <div class="d-flex justify-content-center">
+        INFO
+    </div>
   <div class="m-2 d-flex justify-content-between flex-row">
     <div >
     Street Name:
     </div>
-    <div class="">
+    <div >
       {{form.streetName}}
       </div>
   </div>
@@ -11,15 +14,15 @@
       <div >
       Street Number:
       </div>
-      <div class="">
-        {{form.streetName}}
+      <div  >
+        {{form.streetNumber}}
         </div>
     </div>
     <div class="m-2 d-flex justify-content-between flex-row">
         <div >
        City:
         </div>
-        <div class="">
+        <div >
           {{form.city}}
           </div>
       </div>
@@ -27,7 +30,7 @@
           <div >
           Country:
           </div>
-          <div class="">
+          <div >
             {{form.country}}
             </div>
         </div>
@@ -35,7 +38,7 @@
             <div >
             Zip Code:
             </div>
-            <div class="">
+            <div >
               {{form.zip}}
               </div>
           </div>
@@ -43,7 +46,7 @@
               <div >
               Phone Numbers:
               </div>
-              <div *ngFor="let number of form.phoneNumbers" class="">
+              <div *ngFor="let number of form.phoneNumbers" >
                 {{number}}
                 </div>
             </div>
